@@ -14,7 +14,7 @@ npm install react-oauth-popup --save
 ### Props
 
 * **url** - the url of the oauth navigation screen (instagram/facebook/etc.)
-* **onCode** - called when the user has successfully authenticated with the oauth code
+* **onCode** - called when the user has successfully authenticated with the oauth code and [URLSearchParams object](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) for accessing state, etc.
 * **onClose** - called when the popup will be closed
 * **width** - width of the popup window (optional)
 * **height** - height of the popup window (optional)
@@ -25,6 +25,7 @@ npm install react-oauth-popup --save
 const onCode = (code, params) => {
   console.log("wooooo a code", code);
   console.log("alright! the URLSearchParams interface from the popup url", params);
+  console.log("and maybe some state we could validate?!", params.get("state"));
 }
 const onClose = () => console.log("closed!");
 
